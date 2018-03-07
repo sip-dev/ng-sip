@@ -21,10 +21,10 @@ Make sure you have Node version >= 6.9.0 and NPM >= 3 or higher.
 ```bash
 # clone ng-alain-sip repo
 # 如果不能clone: git config --global http.sslVerify false
-git clone https://gitlab.bingosoft.net/panzsh/ng-alain-sip.git
+git clone https://github.com/sip-dev/ng-sip.git
 
 # change directory
-cd ng-alain-sip
+cd ng-sip
 
 # install npm package
 npm install
