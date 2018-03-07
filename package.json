@@ -28,7 +28,7 @@
     "e2e": "ng e2e",
     "test": "ng test -sr -sm=false",
     "test-coverage": "ng test -sr -cc -sm=false",
-    "gh-pages": "npm run build && gh-pages -d dist"
+    "gh-pages": "gh-pages -d dist"
   },
   "dependencies": {
     "@angular/animations": "^5.0.0",

@@ -1,6 +1,8 @@
 # 描述
 
-[ng-alain-sip](https://gitlab.bingosoft.net/panzsh/ng-alain-sip) 是一个基于 [ng-alain](https://github.com/cipchk/ng-alain) 的企业级中后台前端脚手架，目标也非常简单，希望在Angular上面开发企业后台更简单、更快速。
+[Demo](https://sip-dev.github.io/ng-sip/)
+
+[ng-sip](https://github.com/sip-dev/ng-sip) 是一个基于 [ng-alain](https://github.com/cipchk/ng-alain) 的企业级中后台前端脚手架，目标也非常简单，希望在Angular上面开发企业后台更简单、更快速。
 
 ## Environment
 
