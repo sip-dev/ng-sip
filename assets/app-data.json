@@ -10,29 +10,29 @@
     },
     "menu": [{
         "text": "云服务",
-        "translate": "main_navigation",
+        "i18n": "main_navigation",
         "group": true,
         "hide": false,
         "children": [
 		{
 			"text": "ServerList",
-            "translate": "服务目录",
+            "i18n": "服务目录",
             "link": "/ui-demo/server-list",
             "icon": "anticon anticon-appstore-o"
 		},{
             "text": "demo_ui",
-            "translate": "UIDemo",
+            "i18n": "UIDemo",
             "link": "/ui-demo",
             "icon": "anticon anticon-usb",
             "children": [{
                 "text": "表格",
                 "link": "/ui-demo/list",
-                "translate": "表格",
+                "i18n": "表格",
                 "description":""
             },{
                 "text": "基本表单",
                 "link": "/ui-demo/list-create",
-                "translate": "基本表单",
+                "i18n": "基本表单",
                 "description":"基本表单 description"
             }]
         }]
