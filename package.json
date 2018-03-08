@@ -28,7 +28,7 @@
     "e2e": "ng e2e",
     "test": "ng test -sr -sm=false",
     "test-coverage": "ng test -sr -cc -sm=false",
-    "gh-pages": "gh-pages -d dist"
+    "gh-pages": "npm run build -- -bh=\"/ng-sip/\" && gh-pages -d dist"
   },
   "dependencies": {
     "@angular/animations": "^5.0.0",
@@ -71,7 +71,7 @@
     "ngx-ueditor": "^1.1.0",
     "rxjs": "^5.5.5",
     "screenfull": "^3.3.1",
-    "sip-alain": "^0.1.1",
+    "sip-alain": "^0.1.2",
     "sip-lib": "^0.0.1",
     "simple-line-icons": "^2.4.1",
     "sweetalert2": "^7.0.0",

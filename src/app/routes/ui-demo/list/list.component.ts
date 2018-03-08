@@ -1,5 +1,5 @@
 import { Component, ViewContainerRef, forwardRef } from '@angular/core';
-import { SipPage, SipNgInit, SipBusinessComponent, SipAccess, SipAccessManager, Lib, SipAccessItem, MinitableManager } from 'sip-alain';
+import { SipPage, SipNgInit, SipBusinessComponent, SipAccess, SipAccessManager, Lib, SipAccessItem, MinitableManager, SipNgDestroy } from 'sip-alain';
 import { ListFormComponent } from '../list-form/list-form.component';
 
 @Component({
@@ -20,6 +20,12 @@ export class ListComponent extends SipPage {
     @SipNgInit()
     private _init() {
         this.params = this.$params(this.params);
+        console.log('init', this.params);
+    }
+
+    @SipNgDestroy()
+    private _destroy() {
+        console.log('_destroy')
     }
 
     @SipAccess<ListComponent>()
