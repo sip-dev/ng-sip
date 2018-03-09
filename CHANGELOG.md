@@ -1,6 +1,10 @@
 
 # 更新
 
+## 0.5.2 (none)
+
+* update sip-alain 0.1.4
+
 ## 0.5.1
 
 * update ng-alain 0.7.1
