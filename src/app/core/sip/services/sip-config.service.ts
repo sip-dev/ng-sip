@@ -9,6 +9,10 @@ import { Observable } from 'rxjs/Observable';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReuseTabService, ReuseTabMatchMode } from '@delon/abc';
 
+//mock
+import * as MOCKDATA from '../../../../../_mock';
+import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
+
 @Injectable()
 export class SipConfigService implements SipAlainConfig {
 
@@ -29,6 +33,11 @@ export class SipConfigService implements SipAlainConfig {
         login_url: this.site.loginUrl
     };
 
+    mockOptions = {
+        data: environment.mock ? MOCKDATA : {},
+        log: environment.mock
+    };
+
     i18n = {
         prefix: 'assets/i18n/',
         suffix: '.json',
@@ -46,6 +55,14 @@ export class SipConfigService implements SipAlainConfig {
     startup() {
         let reuseTabSrv: ReuseTabService = this.injector.get(ReuseTabService);
         reuseTabSrv.mode = ReuseTabMatchMode.URL;
+        let tokenService:ITokenService = this.injector.get(DA_SERVICE_TOKEN);
+        tokenService.set({
+            token: '123456789',
+            name: 'bingo',
+            email: `bingo@qq.com`,
+            id: 10000,
+            time: +new Date
+        });
         return Promise.resolve(null);
     }
 
@@ -116,7 +133,7 @@ export class SipConfigService implements SipAlainConfig {
          * rest url 改造路径
          */
         mapPath: function (path: string) {
-            return path;
+            return ('/' + path).replace(/\/{2,}/g, '/');
         },
         /**
          * 提交类型form | body
