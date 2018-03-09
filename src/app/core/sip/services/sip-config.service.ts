@@ -102,7 +102,7 @@ export class SipConfigService implements SipAlainConfig {
                 if (/\/api\//.test(event.url)) {
                     let msgSrv: NzMessageService = this.injector.get(NzMessageService);
                     let ev: HttpErrorResponse = event as HttpErrorResponse;
-                    msgSrv.error(ev.message, { nzPauseOnHover: false, nzDuration: 10000 });
+                    msgSrv.error(ev.message, { nzDuration: 3000 });
                     console.log(event);
                 }
                 else
