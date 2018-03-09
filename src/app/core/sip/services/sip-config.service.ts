@@ -14,12 +14,20 @@ export class SipConfigService implements SipAlainConfig {
 
     constructor(private injector: Injector) { }
 
+    environment = environment;
+
     site = {
         loginUrl: '/themes/metronic/modules/common/login/login_sso.jsp?returnUrl=/',
         logoutUrl: ''
     };
 
     appDataPath = 'assets/app-data.json';
+
+    authOptions = {
+        // ignores: [ `\\/login`, `assets\\/` ],
+        //login_url: `/passport/login`
+        login_url: this.site.loginUrl
+    };
 
     i18n = {
         prefix: 'assets/i18n/',
@@ -107,7 +115,7 @@ export class SipConfigService implements SipAlainConfig {
         /**
          * rest url 改造路径
          */
-        mapPath: function (path:string) {
+        mapPath: function (path: string) {
             return path;
         },
         /**

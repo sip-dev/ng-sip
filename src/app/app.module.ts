@@ -17,6 +17,13 @@ import { RoutesRoutingModule } from '@routes/routes-routing.module';
 
 import { SipConfigService } from '@core/sip/services/sip-config.service';
 
+// mock
+import { DelonMockModule } from '@delon/mock';
+import * as MOCKDATA from '../../_mock';
+import { environment } from '@env/environment';
+const MOCKMODULE = !environment.production || environment.chore === true ?
+                    [ DelonMockModule.forRoot({ data: MOCKDATA }) ] : [];
+
 @NgModule({
 	declarations: [
 		AppComponent
@@ -41,7 +48,9 @@ import { SipConfigService } from '@core/sip/services/sip-config.service';
 		}),
 		NgxTinymceModule.forRoot({
 			baseURL: '//cdn.bootcss.com/tinymce/4.7.4/'
-		})
+		}),
+		// mock
+        ...MOCKMODULE
 	],
 	providers: [
 	],

@@ -12,6 +12,8 @@ export class ListComponent extends SipPage {
 
     constructor(vcf: ViewContainerRef) {
         super(vcf);
+        this.$httpSrv.sqlList({connstr:'iaas', sqlId:'Iaas_Instance.List.GetByOwnerID'}).subscribe((rs)=>{console.log('rs', rs);});
+        this.$httpSrv.get('api/test/user/11').subscribe((rs)=>{console.log('mock', rs);})
     }
 
     params = { id: '' };
