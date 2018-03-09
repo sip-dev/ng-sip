@@ -1,5 +1,5 @@
 import { Component, ViewContainerRef, forwardRef } from '@angular/core';
-import { SipPage, SipNgInit, SipBusinessComponent, SipAccess, SipAccessManager, Lib, SipAccessItem, MinitableManager, SipNgDestroy } from 'sip-alain';
+import { SipPage, SipNgInit, SipBusinessComponent, SipAccess, SipAccessManager, Lib, SipAccessItem, MinitableManager, SipNgDestroy, SipRestSqlDef, SipRestSqlFunction, SipRestSqlType } from 'sip-alain';
 import { ListFormComponent } from '../list-form/list-form.component';
 
 @Component({
@@ -12,8 +12,6 @@ export class ListComponent extends SipPage {
 
     constructor(vcf: ViewContainerRef) {
         super(vcf);
-        this.$httpSrv.sqlList({connstr:'iaas', sqlId:'Iaas_Instance.List.GetByOwnerID'}).subscribe((rs)=>{console.log('rs', rs);});
-        this.$httpSrv.get('api/test/user/11').subscribe((rs)=>{console.log('mock', rs);})
     }
 
     params = { id: '' };
@@ -78,6 +76,7 @@ export class ListComponent extends SipPage {
         // connstr: 'iaas',
         // sqlId: 'iaas_Instance.List.GetByOwnerID',
         multiSelect: true,
+        autoLoad: false,
         datas: this.nzdata,
         onSearch: (searchParams: object) => {
             Lib.extend(searchParams, {
@@ -176,7 +175,7 @@ export class ListComponent extends SipPage {
         let rows = this.tableManager.selectRows;
         if (rows.length == 0) return;
         let isEdit = this.editText == '保存';
-        rows.forEach((row)=>{
+        rows.forEach((row) => {
             this.tableManager.editRow([row.index], !isEdit);
         })
 
