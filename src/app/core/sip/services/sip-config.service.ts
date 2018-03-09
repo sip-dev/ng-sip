@@ -12,6 +12,10 @@ import { ReuseTabService, ReuseTabMatchMode } from '@delon/abc';
 //mock
 import * as MOCKDATA from '../../../../../_mock';
 import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
+import { NzMessageService } from 'ng-zorro-antd';
+
+let _rmPathSplitRegex = /\/{2,}/g;
+let _rmPathSplit = function (path: string) { return path.replace(_rmPathSplitRegex, '/'); };
 
 @Injectable()
 export class SipConfigService implements SipAlainConfig {
@@ -35,7 +39,11 @@ export class SipConfigService implements SipAlainConfig {
 
     mockOptions = {
         data: environment.mock ? MOCKDATA : {},
-        log: environment.mock
+        log: false
+    };
+
+    reuseTab = {
+        mode: ReuseTabMatchMode.URL
     };
 
     i18n = {
@@ -53,9 +61,7 @@ export class SipConfigService implements SipAlainConfig {
     }
 
     startup() {
-        let reuseTabSrv: ReuseTabService = this.injector.get(ReuseTabService);
-        reuseTabSrv.mode = ReuseTabMatchMode.URL;
-        let tokenService:ITokenService = this.injector.get(DA_SERVICE_TOKEN);
+        let tokenService: ITokenService = this.injector.get(DA_SERVICE_TOKEN);
         tokenService.set({
             token: '123456789',
             name: 'bingo',
@@ -91,8 +97,16 @@ export class SipConfigService implements SipAlainConfig {
                 break;
             case 403:
             case 404:
+                console.log('event.status', event.status, event.url);
             case 500:
-                this.goTo(`/${event.status}`);
+                if (/\/api\//.test(event.url)) {
+                    let msgSrv: NzMessageService = this.injector.get(NzMessageService);
+                    let ev: HttpErrorResponse = event as HttpErrorResponse;
+                    msgSrv.error(ev.message, { nzPauseOnHover: false, nzDuration: 10000 });
+                    console.log(event);
+                }
+                else
+                    this.goTo(`/${event.status}`);
                 break;
         }
         return of(event);
@@ -103,7 +117,7 @@ export class SipConfigService implements SipAlainConfig {
         // 统一加上服务端前缀
         let url = req.url;
         if (!url.startsWith('https://') && !url.startsWith('http://')) {
-            url = environment.SERVER_URL + url;
+            url = _rmPathSplit(environment.SERVER_URL + url);
         }
 
         const newReq = req.clone({
@@ -133,7 +147,7 @@ export class SipConfigService implements SipAlainConfig {
          * rest url 改造路径
          */
         mapPath: function (path: string) {
-            return ('/' + path).replace(/\/{2,}/g, '/');
+            return _rmPathSplit('/' + path);
         },
         /**
          * 提交类型form | body
