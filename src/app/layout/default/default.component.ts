@@ -1,7 +1,7 @@
 import { Component, ViewChild, forwardRef, ViewContainerRef } from '@angular/core';
 import { Router, NavigationEnd, RouteConfigLoadStart, NavigationError } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd';
-import { ScrollService, MenuService, SettingsService } from '@delon/theme';
+import { ScrollService, MenuService } from '@delon/theme';
 import { ReuseTabComponent, ReuseTabService, ReuseTabMatchMode } from '@delon/abc';
 import { SipLayout } from 'sip-alain';
 
@@ -19,8 +19,7 @@ export class LayoutDefaultComponent implements SipLayout {
         router: Router,
         scroll: ScrollService,
         private _message: NzMessageService,
-        public menuSrv: MenuService,
-        public settings: SettingsService) {
+        public menuSrv: MenuService) {
 
         // scroll to top in change page
         router.events.subscribe(evt => {
