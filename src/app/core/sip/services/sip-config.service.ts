@@ -36,7 +36,9 @@ export class SipConfigService implements SipAlainConfig {
     };
 
     reuseTab = {
+        /**是否使用多页面 */
         use: true,
+        /**多页url复用模式 */
         mode: ReuseTabMatchMode.URL
     };
 
@@ -48,19 +50,25 @@ export class SipConfigService implements SipAlainConfig {
     };
 
     i18n = {
+        /**路径前缀 */
         prefix: 'assets/i18n/',
+        /**路径后缀 */
         suffix: '.json',
+        /**默认语言 */
         default: 'zh-CN',
+        /**可使用语言 */
         langs: [
             { code: 'en', text: 'English' },
             { code: 'zh-CN', text: '中文' }
         ]
     };
 
+    /**TranslateHttpLoader */
     i18nLoader(http: HttpClient) {
         return new TranslateHttpLoader(http, this.i18n.prefix, this.i18n.suffix);
     }
 
+    /**启动时处理 */
     startup() {
         let tokenService: ITokenService = this.injector.get(DA_SERVICE_TOKEN);
         tokenService.set({
@@ -111,6 +119,7 @@ export class SipConfigService implements SipAlainConfig {
         return of(event);
     }
 
+    /**http 拦截处理*/
     intercept(req: HttpRequest<any>, next: HttpHandler): any {
 
         // 统一加上服务端前缀
@@ -134,6 +143,7 @@ export class SipConfigService implements SipAlainConfig {
         );
     }
 
+    /**rest相关处理 */
     rest = {
         /**
          * rest url 改造路径
@@ -195,6 +205,7 @@ export class SipConfigService implements SipAlainConfig {
         }
     };
 
+    /**minitable默认设置 */
     minitable = {
         /**
          * 页面记录数
