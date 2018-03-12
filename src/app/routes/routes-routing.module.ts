@@ -17,6 +17,10 @@ const routes: Routes = [
             {
                 path: 'ui-demo',
                 loadChildren: './ui-demo/ui-demo-routing.module#UiDemoRoutingModule'
+            },
+            {
+                path: 'exception',
+                loadChildren: './ng-alain/exception/exception-routing.module#ExceptionRoutingModule'
             }
         ]
     },
@@ -30,10 +34,6 @@ const routes: Routes = [
     {
         path: 'callback',
         loadChildren: './ng-alain/callback/callback-routing.module#CallbackRoutingModule'
-    },
-    {
-        path: 'exception',
-        loadChildren: './ng-alain/exception/exception-routing.module#ExceptionRoutingModule'
     },
     { path: 'callback/:type', redirectTo: 'callback/callback' },
     { path: '403', redirectTo: 'exception/403' },

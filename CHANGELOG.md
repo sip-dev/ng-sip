@@ -6,6 +6,7 @@
 * update sip-alain 0.2.0
 * ADD: mock to env
 * REMOVE: reuseTab layout
+* OPT: exception routeing
 
 ## 0.5.1
 
