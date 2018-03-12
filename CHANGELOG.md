@@ -5,6 +5,7 @@
 
 * update sip-alain 0.2.0
 * ADD: mock to env
+* OTP: layout
 
 ## 0.5.1
 
