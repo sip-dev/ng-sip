@@ -3,7 +3,8 @@
 
 ## 0.5.2 (none)
 
-* update sip-alain 0.1.4
+* update sip-alain 0.2.0
+* ADD: mock to env
 
 ## 0.5.1
 
