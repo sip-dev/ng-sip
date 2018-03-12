@@ -6,7 +6,7 @@
 // mock
 import { DelonMockModule } from '@delon/mock';
 import * as MOCKDATA from '../../_mock';
-const MOCKMODULE = [DelonMockModule.forRoot({ data: MOCKDATA })];
+const MOCKMODULE = [DelonMockModule.forRoot({ data: MOCKDATA, force:false })];
 
 export const environment = {
     chore: false,
