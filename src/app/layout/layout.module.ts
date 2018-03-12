@@ -10,7 +10,6 @@ const COMPONENTS = [
 // passport
 import { LayoutPassportComponent } from './passport/passport.component';
 import { DefaultModule } from './default/default.module';
-import { ReuseTabLayoutModule } from './reuse-tab/reuseTab-layout.module';
 
 
 const PASSPORT = [
@@ -20,8 +19,7 @@ const PASSPORT = [
 @NgModule({
     imports: [
         SharedModule,
-        DefaultModule,
-        ReuseTabLayoutModule
+        DefaultModule
     ],
     providers: [],
     declarations: [
@@ -30,8 +28,7 @@ const PASSPORT = [
     ],
     exports: [
         ...PASSPORT,
-        DefaultModule,
-        ReuseTabLayoutModule
+        DefaultModule
     ]
 })
 export class LayoutModule { }

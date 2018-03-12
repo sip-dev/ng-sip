@@ -36,8 +36,15 @@ export class SipConfigService implements SipAlainConfig {
     };
 
     reuseTab = {
-        use:false,
+        use: true,
         mode: ReuseTabMatchMode.URL
+    };
+
+    page = {
+        /**只有一个子页面 */
+        onceChild: true,
+        /** 关闭时自动关闭子页面 */
+        autoCloseChild: true
     };
 
     i18n = {
@@ -126,13 +133,6 @@ export class SipConfigService implements SipAlainConfig {
             catchError((err: HttpErrorResponse) => this.handleData(err))
         );
     }
-
-    page = {
-        /**只有一个子页面 */
-        onceChild: true,
-        /** 关闭时自动关闭子页面 */
-        autoCloseChild: true
-    };
 
     rest = {
         /**

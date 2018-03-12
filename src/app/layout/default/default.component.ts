@@ -4,6 +4,7 @@ import { NzMessageService } from 'ng-zorro-antd';
 import { ScrollService, MenuService } from '@delon/theme';
 import { ReuseTabComponent, ReuseTabService, ReuseTabMatchMode } from '@delon/abc';
 import { SipLayout } from 'sip-alain';
+import { SipConfigService } from '../../core/sip/services/sip-config.service';
 
 @Component({
     selector: 'layout-default',
@@ -15,11 +16,14 @@ export class LayoutDefaultComponent implements SipLayout {
 
     @ViewChild('tab') tab: ReuseTabComponent;
 
+    get useTab() { return this._config.reuseTab.use }
+
     constructor(
         router: Router,
         scroll: ScrollService,
         private _message: NzMessageService,
-        public menuSrv: MenuService) {
+        public menuSrv: MenuService,
+        private _config: SipConfigService) {
 
         // scroll to top in change page
         router.events.subscribe(evt => {
@@ -36,7 +40,7 @@ export class LayoutDefaultComponent implements SipLayout {
             }
             setTimeout(() => {
                 let e: NavigationEnd = evt;
-                if (!/_L\=/.test(e.url))
+                if (!this.useTab && !/_L\=/.test(e.url))
                     this.tab.clear();
 
                 scroll.scrollToTop();

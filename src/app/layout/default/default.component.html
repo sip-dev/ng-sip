@@ -1,4 +1,4 @@
-<div class="wrapper reuse-tab-hide">
+<div class="wrapper" [class.reuse-tab-hide]="!useTab">
     <div class="router-progress-bar" *ngIf="isFetching"></div>
     <app-header class="header"></app-header>
     <app-sidebar class="aside"></app-sidebar>
