@@ -5,7 +5,7 @@
 
 * update sip-alain 0.2.0
 * ADD: mock to env
-* OTP: layout
+* REMOVE: reuseTab layout
 
 ## 0.5.1
 
