@@ -3,11 +3,16 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
+// mock
+import { DelonMockModule } from '@delon/mock';
+import * as MOCKDATA from '../../_mock';
+const MOCKMODULE = [DelonMockModule.forRoot({ data: MOCKDATA })];
+
 export const environment = {
     chore: false,
     SERVER_URL: `./`,
     production: false,
     hmr: false,
     useHash: true,
-    mock: true
+    MOCKMODULE: [DelonMockModule.forRoot({ data: MOCKDATA })]
 };

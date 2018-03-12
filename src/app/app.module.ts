@@ -16,6 +16,7 @@ import { LayoutModule } from './layout/layout.module';
 import { RoutesRoutingModule } from '@routes/routes-routing.module';
 
 import { SipConfigService } from '@core/sip/services/sip-config.service';
+import { environment } from '../environments/environment';
 
 @NgModule({
 	declarations: [
@@ -27,6 +28,7 @@ import { SipConfigService } from '@core/sip/services/sip-config.service';
 		SipAlainModule.forRoot(SipConfigService),
 		CoreModule,
 		SharedModule,
+		...environment.MOCKMODULE,
 		LayoutModule,
 		RoutesRoutingModule,
 		// thirds

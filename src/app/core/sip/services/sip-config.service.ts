@@ -9,8 +9,6 @@ import { Observable } from 'rxjs/Observable';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReuseTabService, ReuseTabMatchMode } from '@delon/abc';
 
-//mock
-import * as MOCKDATA from '../../../../../_mock';
 import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
 import { NzMessageService } from 'ng-zorro-antd';
 
@@ -37,12 +35,8 @@ export class SipConfigService implements SipAlainConfig {
         login_url: this.site.loginUrl
     };
 
-    mockOptions = {
-        data: environment.mock ? MOCKDATA : {},
-        log: false
-    };
-
     reuseTab = {
+        use:false,
         mode: ReuseTabMatchMode.URL
     };
 
