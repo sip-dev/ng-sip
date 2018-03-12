@@ -1,12 +1,14 @@
 
 # 更新
 
-## 0.5.2 (none)
+## 0.5.2
 
 * update sip-alain 0.2.0
 * ADD: mock to env
 * REMOVE: reuseTab layout
 * OPT: exception routeing
+* OPT: SipConfigService
+* OPT: UI
 
 ## 0.5.1
 
