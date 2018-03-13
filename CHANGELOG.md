@@ -1,6 +1,10 @@
 
 # 更新
 
+## 0.5.4
+
+* update sip-alain 0.2.2
+
 ## 0.5.3
 
 * update sip-alain 0.2.1
