@@ -1,9 +1,10 @@
 
 # 更新
 
-## 0.5.5
+## 0.5.5 (none)
 
 * update sip-alain 0.2.3
+* ADD: disabled style class
 
 ## 0.5.4
 
