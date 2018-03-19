@@ -215,7 +215,9 @@ export class SipConfigService implements SipAlainConfig {
         /**
          * 选择模式，分别是操作模式(operate)和选择模式(select)
          */
-        selectMode: 'operate'
+        selectMode: 'operate',
+        /**过滤器是否单选 */
+        filterSingle:true
     };
 
 }
