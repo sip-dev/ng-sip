@@ -92,6 +92,7 @@ export class ListComponent extends SipPage {
                     { text: '处理中', value: 'processing' },
                     { text: '失败', value: 'error' }
                 ],
+                defaultValue:['success'],
                 onFilter: (p) => {
                     let values = p.values;
                     this.tableManager.search({ status: status });
