@@ -3,7 +3,7 @@
 
 ## 0.5.5 (none)
 
-* update sip-alain 0.2.4
+* update sip-alain 0.2.5
 * ADD: disabled style class
 
 ## 0.5.4
