@@ -9,7 +9,6 @@ import * as MOCKDATA from '../../_mock';
 const MOCKMODULE = [DelonMockModule.forRoot({ data: MOCKDATA, force:false })];
 
 export const environment = {
-    chore: false,
     SERVER_URL: `./`,
     production: false,
     hmr: false,
