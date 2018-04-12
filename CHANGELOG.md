@@ -1,6 +1,11 @@
 
 # 更新
 
+## 0.6.0
+
+* update ng-alain 1.0.0-beta.4
+* update ng-zorro-antd 0.7.0-beta.2
+
 ## 0.5.5
 
 * update sip-alain 0.2.5

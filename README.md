@@ -8,8 +8,8 @@
 
 | package | version | git | document |
 | ------- | ------- | ------- | ------- |
-| `ng-alain` | 0.7.1 | [git](https://github.com/cipchk/ng-alain/) | [文档](http://ng-alain.com/) |
-| `ng-zorro-antd` | 0.6.10 | [git](https://github.com/NG-ZORRO/ng-zorro-antd) | [文档](https://ng.ant.design/) |
+| `ng-alain` | 1.0.0-beta.4 | [git](https://github.com/cipchk/ng-alain/) | [文档](http://ng-alain.com/) |
+| `ng-zorro-antd` | 0.7.0-beta.2 | [git](https://github.com/NG-ZORRO/ng-zorro-antd) | [文档](https://ng.ant.design/) |
 | `@angular` | 5.2.0 | [git](https://github.com/angular/angular) | [文档](https://angular.cn/) |
 | `@angular/cli` | 1.6.3 | [git](https://github.com/angular/angular-cli) | [文档](https://github.com/angular/angular-cli/tree/master/docs/documentation) |
 
