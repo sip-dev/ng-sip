@@ -1,16 +1,17 @@
+import { HttpClient, HttpErrorResponse, HttpHandler, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
-import { SipAlainConfig, IConfigResetMapRet } from 'sip-alain';
-import { HttpRequest, HttpHandler, HttpResponse, HttpErrorResponse, HttpClient } from '@angular/common/http';
-import { of } from 'rxjs/observable/of';
-import { mergeMap, catchError } from 'rxjs/operators';
-import { environment } from '@env/environment';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { ReuseTabService, ReuseTabMatchMode } from '@delon/abc';
-
+import { ReuseTabMatchMode } from '@delon/abc';
 import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
+import { _HttpClient } from '@delon/theme';
+import { environment } from '@env/environment';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NzMessageService } from 'ng-zorro-antd';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { catchError, mergeMap } from 'rxjs/operators';
+import { IConfigResetMapRet, SipAlainConfig } from 'sip-alain';
+
 
 let _rmPathSplitRegex = /\/{2,}/g;
 let _rmPathSplit = function (path: string) { return path.replace(_rmPathSplitRegex, '/'); };
@@ -54,7 +55,7 @@ export class SipConfigService implements SipAlainConfig {
         prefix: 'assets/i18n/',
         /**路径后缀 */
         suffix: '.json',
-        /**默认语言 */
+        /**默认语言, 可以使用TranslateService.getBrowserLang() */
         default: 'zh-CN',
         /**可使用语言 */
         langs: [
@@ -86,6 +87,8 @@ export class SipConfigService implements SipAlainConfig {
     }
 
     private handleData(event: HttpResponse<any> | HttpErrorResponse): Observable<any> {
+        // 可能会因为 `throw` 导出无法执行 `_HttpClient` 的 `end()` 操作
+        this.injector.get(_HttpClient).end();
         // 业务处理：一些通用操作
         switch (event.status) {
             case 200:
@@ -121,11 +124,10 @@ export class SipConfigService implements SipAlainConfig {
 
     /**http 拦截处理*/
     intercept(req: HttpRequest<any>, next: HttpHandler): any {
-
         // 统一加上服务端前缀
         let url = req.url;
         if (!url.startsWith('https://') && !url.startsWith('http://')) {
-            url = _rmPathSplit(environment.SERVER_URL + url);
+            url = environment.SERVER_URL + url;
         }
 
         const newReq = req.clone({
@@ -217,7 +219,7 @@ export class SipConfigService implements SipAlainConfig {
          */
         selectMode: 'operate',
         /**过滤器是否单选 */
-        filterSingle:true
+        filterSingle: true
     };
 
 }

@@ -23,6 +23,7 @@ export class LayoutDefaultComponent implements SipLayout {
         scroll: ScrollService,
         private _message: NzMessageService,
         public menuSrv: MenuService,
+        private _reuseTabSrv:ReuseTabService,
         private _config: SipConfigService) {
 
         // scroll to top in change page
@@ -41,7 +42,7 @@ export class LayoutDefaultComponent implements SipLayout {
             setTimeout(() => {
                 let e: NavigationEnd = evt;
                 if (!this.useTab && !/_L\=/.test(e.url))
-                    this.tab.clear();
+                    this._reuseTabSrv.clear();
 
                 scroll.scrollToTop();
                 this.isFetching = false;

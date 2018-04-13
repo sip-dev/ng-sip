@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { SettingsService, MenuService } from '@delon/theme';
+import { Component, Inject } from '@angular/core';
+import { SettingsService, MenuService, TitleService, ALAIN_I18N_TOKEN } from '@delon/theme';
 import { I18NService } from 'sip-alain';
 
 @Component({
-    selector: 'header-langs',
+    selector: 'header-i18n',
     template: `
     <nz-dropdown>
         <div nz-dropdown>
@@ -19,22 +19,19 @@ import { I18NService } from 'sip-alain';
     </nz-dropdown>
     `
 })
-export class HeaderLangsComponent {
+export class HeaderI18nComponent {
 
     langs: any[];
 
     constructor(
-        private menuService: MenuService,
         public settings: SettingsService,
-        public tsServ: I18NService
+        @Inject(ALAIN_I18N_TOKEN) private i18n: I18NService
     ) {
-        this.langs = this.tsServ.getLangs();
+        this.langs = this.i18n.getLangs();
     }
 
     change(lang: string) {
-        this.tsServ.use(lang, false).subscribe(() => {
-            this.menuService.resume();
-        });
+        this.i18n.use(lang);
         this.settings.setLayout('lang', lang);
     }
 }

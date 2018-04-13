@@ -7,32 +7,40 @@ import { Component } from '@angular/core';
         <div class="item" nz-dropdown>
             <i class="anticon anticon-appstore-o"></i>
         </div>
-        <div nz-menu class="wd-xl animated ">
+        <div nz-menu class="wd-xl animated jello">
             <nz-spin [nzSpinning]="loading" [nzTip]="'正在读取数据...'">
                 <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="app-icons">
-					<div nz-col [nzSpan]="6">
-						<span class="bg-error text-white">
-							<i class="fa fa-file-text-o "></i>
-						</span>
-                        <small>工单</small>
-					</div>
-					<div nz-col [nzSpan]="6">
-						<span class="bg-teal text-white">
-							<i class="fa fa-tasks "></i>
-						</span>
-                        <small>订单</small>
+                    <div nz-col [nzSpan]="6">
+                        <i class="anticon anticon-calendar bg-error text-white"></i>
+                        <small>Calendar</small>
                     </div>
-					<div nz-col [nzSpan]="6">
-						<span class="bg-success text-white">
-							<i class="fa fa-rss"></i>
-						</span>
-                        <small>操作日志</small>
+                    <div nz-col [nzSpan]="6">
+                        <i class="anticon anticon-file bg-teal text-white"></i>
+                        <small>Files</small>
                     </div>
-					<div nz-col [nzSpan]="6">
-						<span class="bg-purple-7 text-white">
-							<i class="fa fa-desktop"></i>
-						</span>
-                        <small>配置管理</small>
+                    <div nz-col [nzSpan]="6">
+                        <i class="anticon anticon-cloud bg-success text-white"></i>
+                        <small>Cloud</small>
+                    </div>
+                    <div nz-col [nzSpan]="6">
+                        <i class="anticon anticon-star-o bg-magenta text-white"></i>
+                        <small>Star</small>
+                    </div>
+                    <div nz-col [nzSpan]="6">
+                        <i class="anticon anticon-team bg-purple text-white"></i>
+                        <small>Team</small>
+                    </div>
+                    <div nz-col [nzSpan]="6">
+                        <i class="anticon anticon-scan bg-warning text-white"></i>
+                        <small>QR</small>
+                    </div>
+                    <div nz-col [nzSpan]="6">
+                        <i class="anticon anticon-pay-circle-o bg-cyan text-white"></i>
+                        <small>Pay</small>
+                    </div>
+                    <div nz-col [nzSpan]="6">
+                        <i class="anticon anticon-printer bg-grey text-white"></i>
+                        <small>Print</small>
                     </div>
                 </div>
             </nz-spin>

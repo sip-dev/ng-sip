@@ -1,7 +1,5 @@
 import { Component, ViewContainerRef, forwardRef } from '@angular/core';
-import * as moment from 'moment';
-import { AdChartsModule } from '@delon/abc';
-import { SipPage, SipNgInit, SipBusinessComponent } from 'sip-alain';
+import { SipBusinessComponent, SipNgInit, SipPage } from 'sip-alain';
         
 @Component({
     selector: 'sip-list-detail',
