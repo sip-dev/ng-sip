@@ -7,14 +7,14 @@
 	</sip-page-header>
 
 	<sip-page-body>
-		<nz-card *ngFor="let list of serverList" nzNoPadding [nzBordered]=false class="server-directory mb-sm">
+		<sip-card *ngFor="let list of serverList" [nzBordered]=false class="server-directory mb-sm">
 			<ng-template #title>
 				{{list.name}}
 			</ng-template>
 			<ng-template #body>
 				<div nz-row [nzGutter]="24">
 					<div *ngFor="let item of list.child" nz-col [nzXs]='24' [nzSm]='12' [nzMd]="6">
-						<nz-card nzNoHovering>
+						<sip-card>
 							<ng-template #body>
 								<div class="serveinfo">
 									<div class="img">
@@ -27,11 +27,11 @@
 									</div>
 								</div>
 							</ng-template>
-						</nz-card>
+						</sip-card>
 					</div>
 				</div>
 			</ng-template>
-		</nz-card>
+		</sip-card>
 		
 		
 	</sip-page-body>
