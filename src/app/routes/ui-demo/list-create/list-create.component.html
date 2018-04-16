@@ -128,7 +128,7 @@
 												<span>小规格</span>
 											</label>
 											<ng-template #nzTemplate>
-												<nz-table #nzTable [nzIsPagination]="false" [nzBordered]="false"  [nzSize]="small" [nzDataSource]="smspecification">
+												<nz-table #nzTable [nzShowPagination]="false" [nzBordered]="false"  [nzSize]="small" [nzData]="smspecification">
 													<tbody nz-tbody>
 														<tr nz-tbody-tr *ngFor="let i of nzTable.data">
 															<td widh="100" nz-td>{{i.name}}</td>
