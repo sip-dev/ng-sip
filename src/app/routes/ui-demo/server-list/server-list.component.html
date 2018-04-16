@@ -7,7 +7,7 @@
 	</sip-page-header>
 
 	<sip-page-body>
-		<sip-card *ngFor="let list of serverList" [nzBordered]=false class="server-directory mb-sm">
+		<sip-card *ngFor="let list of serverList" [bordered]="true" class="server-directory mb-sm">
 			<ng-template #title>
 				{{list.name}}
 			</ng-template>
