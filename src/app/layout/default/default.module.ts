@@ -13,6 +13,8 @@ import { HeaderFullScreenComponent } from './header/components/fullscreen.compon
 import { HeaderI18nComponent } from './header/components/i18n.component';
 import { HeaderStorageComponent } from './header/components/storage.component';
 import { HeaderUserComponent } from './header/components/user.component';
+import { HeaderServerComponent } from './header/components/server.component';
+import { HeaderCartComponent } from './header/components/cart.component';
 
 const COMPONENTS = [
     LayoutDefaultComponent,
@@ -28,7 +30,9 @@ const HEADERCOMPONENTS = [
     HeaderFullScreenComponent,
     HeaderI18nComponent,
     HeaderStorageComponent,
-    HeaderUserComponent
+    HeaderUserComponent,
+    HeaderServerComponent,
+    HeaderCartComponent
 ];
 
 @NgModule({
